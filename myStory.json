@@ -1,0 +1,118 @@
+{
+    "Title": "Wallet Hunt: Sammy's Night",
+    "Credits": "Created by Inho Yoo (inyoo@ucsc.edu).",
+    "InitialLocation": "Stevenson",
+    "Locations": {
+      "Stevenson": {
+        "Body": "🌑 Stevenson dorm room. My wallet is gone! I must have dropped it somewhere while walking around today. The last place I visited was the Crown Community Room—let's start there.",
+        "Choices": [{ "Text": "Go to Crown Community Room", "Target": "Crown" }]
+      },
+  
+      "Crown": {
+        "Body": "Crown Community Room. I played pool with friends here, but the wallet isn’t anywhere in sight. Maybe I left it in Baskin Engineering where I had class earlier.",
+        "Choices": [{ "Text": "Head to Baskin Engineering", "Target": "Baskin" }]
+      },
+  
+      "Baskin": {
+        "Body": "Hallway of Baskin Engineering. No luck. Perhaps I dropped it at the Quarry Plaza market.",
+        "Choices": [{ "Text": "Go to Quarry Plaza", "Target": "Quarry" }]
+      },
+  
+      "Quarry": {
+        "Body": "Quarry Plaza. Still no wallet, but there’s an old vending machine I’ve never seen before with three buttons…",
+        "Choices": [
+          { "Text": "[1] TURKEY", "Target": "VM_Turkey" },
+          { "Text": "[2] DEER",   "Target": "VM_Deer"   },
+          { "Text": "[3] YERB",   "Target": "VM_Yerb"   }
+        ]
+      },
+  
+      "VM_Turkey": {
+        "Body": "A live turkey bursts out of the machine!",
+        "Gain": "turkey",
+        "Choices": [{ "Text": "Enter the dark forest", "Target": "ForestIntro" }]
+      },
+      "VM_Deer": {
+        "Body": "A deer pops out and stands beside me.",
+        "Gain": "deer",
+        "Choices": [{ "Text": "Enter the dark forest", "Target": "ForestIntro" }]
+      },
+      "VM_Yerb": {
+        "Body": "A can of yerba mate rolls out with a satisfying hiss.",
+        "Gain": "yerb",
+        "Choices": [{ "Text": "Enter the dark forest", "Target": "ForestIntro" }]
+      },
+  
+      "ForestIntro": {
+        "Body": "To reach McHenry Library I have to cross the dark forest.\nA rustling sound—something is approaching fast from behind…",
+        "Choices": [{ "Text": "Turn around", "Target": "TurnBack" }]
+      },
+  
+      "TurnBack": {
+        "Body": "Sammy the Slug: “Let’s play!”—the giant slug charges straight at me!",
+        "DynamicChoices": {
+          "turkey": { "Text": "Release the turkey!", "Target": "Use_Turkey" },
+          "deer":   { "Text": "Ride the deer!",       "Target": "Use_Deer"   },
+          "yerb":   { "Text": "Drink the yerb…",      "Target": "Use_Yerb"   }
+        }
+      },
+  
+      "Use_Turkey": {
+        "Body": "The turkey screeches and pecks Sammy, driving him away.",
+        "Choices": [
+          { "Text": "To McHenry Classroom Unit", "Target": "Door" }
+        ]
+      },
+      "Use_Deer": {
+        "Body": "The deer sprints like lightning, leaving Sammy far behind.",
+        "Choices": [
+          { "Text": "To McHenry Classroom Unit", "Target": "Door" }
+        ]
+      },
+      "Use_Yerb": {
+        "Body": "I chug the yerb… but Sammy lunges and devours me in an instant.\n★ GAME OVER ★",
+        "Choices": [{ "Text": "Restart", "Target": "Stevenson" }]
+      },
+  
+      "Door": {
+        "Body": "The Classroom Unit door is locked.",
+        "Choices": [{ "Text": "Search the hallway", "Target": "Custodian" }],
+        "DynamicChoices": {
+          "key": {
+            "Text": "Unlock the door (click!)",
+            "Target": "Corridor"
+          }
+        }
+      },
+  
+      "Custodian": {
+        "Body": "\"What’s the matter, student?\" the night custodian asks.",
+        "Choices": [
+          {
+            "Text": "I lost my wallet. Could you unlock the door for me?",
+            "Target": "Custodian_Key"
+          },
+          { "Text": "Walk away", "Target": "Door" }
+        ]
+      },
+  
+      "Custodian_Key": {
+        "Body": "The custodian nods and hands me an old key.\n\"Be careful—strange rumors circulate at night.\"",
+        "Gain": "key",
+        "Choices": [
+          { "Text": "Return to the door with the key", "Target": "Door" }
+        ]
+      },
+  
+      "Corridor": {
+        "Body": "Click! The door opens and I step into the dark corridor.",
+        "Choices": [{ "Text": "Enter the classroom", "Target": "Wallet" }]
+      },
+  
+      "Wallet": {
+        "Body": "My wallet sits on a desk.\n\n──────────\n★ CLEAR ENDING ★\n──────────",
+        "Choices": [{ "Text": "Restart", "Target": "Stevenson" }]
+      }
+    }
+  }
+  
