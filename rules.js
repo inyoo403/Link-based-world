@@ -16,7 +16,7 @@ class Location extends Scene {
 
         if (data.Gain) {
             this.engine.inventory.push(data.Gain);
-            this.engine.show(`(아이템 획득: ${data.Gain})`);
+            this.engine.show(`(You obtained: ${data.Gain})`);
         }
 
         const list = [];
